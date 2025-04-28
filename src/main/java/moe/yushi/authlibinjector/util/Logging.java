@@ -46,7 +46,7 @@ public final class Logging {
 			return null;
 		}
 
-		Path logfilePath = Paths.get("authlib-injector.log").toAbsolutePath();
+		Path logfilePath = Paths.get(System.getProperty("authlibinjector.logPath", "authlib-injector.log")).toAbsolutePath();
 		try {
 			FileChannel channel = FileChannel.open(logfilePath, CREATE, WRITE);
 			if (channel.tryLock() == null) {
